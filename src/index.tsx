@@ -49,7 +49,9 @@ const ReactOdometer: FC<ReactOdometerProps> = ({ animation, duration, format, th
   }, []);
 
   useEffect(() => {
-    odometer.current?.update(value);
+    if (odometer.current) {
+      odometer.current.update(value);
+    }
   }, [value]);
 
   return createElement('div', {
